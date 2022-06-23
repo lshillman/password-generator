@@ -105,7 +105,43 @@ function validateUserChoices(){
 }
 
 function buildPassword(){
-  alert('Now building the password...');
+  console.log('Now building the password...');
+  var selectedCharSet = "";
+  if (includeLower) {
+    selectedCharSet += lowers.join("");
+  }
+  if (includeUpper) {
+    selectedCharSet += uppers.join("");
+  }
+  if (includeNumbers) {
+    selectedCharSet += numbers.join("");
+  }
+  if (includeSpecials) {
+    selectedCharSet += specials.join("");
+  }
+  console.log(selectedCharSet);
+  var passwordArray = [];
+  //TODO: initialize password array with desired length of password
+
+
+
+  if (includeLower) {
+    passwordArray[Math.floor(Math.random() * pwLength.length)] = lowers[Math.floor(Math.random() * lowers.length)];
+    console.log(passwordArray);
+  }
+  if (includeUpper) {
+    passwordArray.push(uppers[Math.floor(Math.random() * uppers.length)]);
+    console.log(passwordArray);
+  }
+  if (includeNumbers) {
+    passwordArray.push(numbers[Math.floor(Math.random() * numbers.length)]);
+    console.log(passwordArray);
+  }
+  if (includeUpper) {
+    passwordArray.push(specials[Math.floor(Math.random() * specials.length)]);
+    console.log(passwordArray);
+  }
+
 }
 
 function generatePassword() {
