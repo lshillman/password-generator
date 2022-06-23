@@ -65,11 +65,43 @@ function collectUpperPref() {
 }
 
 function collectNumberPref () {
-  // TODO write this
+  var numberPref = prompt("Include numbers (0-9)? Type y or n:");
+  if ((numberPref == "Y") || (numberPref == "y")) {
+    includeNumbers = true;
+    collectSpecialPref();
+  } else if ((numberPref == "N") || (numberPref == "n")) {
+    includeNumbers = false;
+    collectSpecialPref();
+  } else if (numberPref != null) {
+    alert('I need a "Y" or "N" here; please try again.');
+    collectNumberPref();
+  } else {
+    console.log("AAAARRRGGGHHH");
+  }
 }
 
 function collectSpecialPref () {
-  // TODO write this
+  var specialPref = prompt("Include special characters? Type y or n:");
+  if ((specialPref == "Y") || (specialPref == "y")) {
+    includeSpecials = true;
+    collectSpecialPref();
+  } else if ((specialPref == "N") || (specialPref == "n")) {
+    includeSpecials = false;
+    collectSpecialPref();
+  } else if (specialPref != null) {
+    alert('I need a "Y" or "N" here; please try again.');
+    collectSpecialPref();
+  } else {
+    console.log("AAAARRRGGGHHH");
+  }
+}
+
+function validateUserChoices(){
+  //TODO write this
+}
+
+function buildPassword(){
+  //TODO write this
 }
 
 function generatePassword() {
