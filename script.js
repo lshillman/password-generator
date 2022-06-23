@@ -22,7 +22,7 @@ function collectLength() { // prompts the user to enter a length, then checks to
   console.log("length is " + passwordLength);
   if ((passwordLength > 7) && (passwordLength < 129)) {
     pwLength = passwordLength;
-    collectUpperPref();
+    collectLowerPref();
   } else if (passwordLength != null) {
     alert("Password must be at least 8 characters and no more than 128 characters. Please try again!");
     collectLength();
@@ -33,13 +33,29 @@ function collectLength() { // prompts the user to enter a length, then checks to
 }
 
 function collectLowerPref(){
-  // TODO write this function
+  var lowerPref = prompt("Include lowercase letters (a-z)? Type y or n:");
+  if ((lowerPref == "Y") || (lowerPref == "y")) {
+    includeLower = true;
+    collectUpperPref();
+  } else if ((lowerPref == "N") || (lowerPref == "n")) {
+    includeLower = false;
+    collectUpperPref();
+  } else if (lowerPref != null) {
+    alert('I need a "Y" or "N" here; please try again.');
+    collectLowerPref();
+  } else {
+    console.log("aaaarrrggghhh");
+  }
 }
 
 function collectUpperPref() {
   var upperPref = prompt("Include uppercase letters (A-Z)? Type y or n:");
-  if ((upperPref == "Y") || (upperPref == "N") || (upperPref == "y") || (upperPref == "n")) {
-    console.log(upperPref);
+  if ((upperPref == "Y") || (upperPref == "y")) {
+    includeUpper = true;
+    collectNumberPref();
+  } else if ((upperPref == "N") || (upperPref == "n")) {
+    includeUpper = false;
+    collectNumberPref();
   } else if (upperPref != null) {
     alert('I need a "Y" or "N" here; please try again.');
     collectUpperPref();
