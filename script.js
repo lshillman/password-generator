@@ -11,15 +11,29 @@ var specials = [" ", "!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",",
 
 console.log(specials);
 
+var pwLength;
+var includeLower;
+var includeUpper;
+var includeNumbers;
+var includeSpecials;
+
 function collectLength() { // prompts the user to enter a length, then checks to see if it's valid, returns the input if so, re-prompts if not
   var passwordLength = prompt("How long should your password be? Please type a number between 8 and 128:");
   console.log("length is " + passwordLength);
   if ((passwordLength > 7) && (passwordLength < 129)) {
-    return passwordLength;
-  } else {
+    pwLength = passwordLength;
+    collectUpperPref();
+  } else if (passwordLength != null) {
     alert("Password must be at least 8 characters and no more than 128 characters. Please try again!");
     collectLength();
   }
+  else {
+    return;
+  }
+}
+
+function collectLowerPref(){
+  // TODO write this function
 }
 
 function collectUpperPref() {
@@ -29,16 +43,21 @@ function collectUpperPref() {
   } else if (upperPref != null) {
     alert('I need a "Y" or "N" here; please try again.');
     collectUpperPref();
-  } else if (upperPref == null) {
+  } else {
     console.log("AAAARRRGGGHHH");
   }
 }
 
+function collectNumberPref () {
+  // TODO write this
+}
 
+function collectSpecialPref () {
+  // TODO write this
+}
 
 function generatePassword() {
   collectLength();
-  collectUpperPref();
 
 }
 
