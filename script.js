@@ -84,10 +84,10 @@ function collectSpecialPref () {
   var specialPref = prompt("Include special characters? Type y or n:");
   if ((specialPref == "Y") || (specialPref == "y")) {
     includeSpecials = true;
-    collectSpecialPref();
+    validateUserChoices();
   } else if ((specialPref == "N") || (specialPref == "n")) {
     includeSpecials = false;
-    collectSpecialPref();
+    validateUserChoices();
   } else if (specialPref != null) {
     alert('I need a "Y" or "N" here; please try again.');
     collectSpecialPref();
@@ -97,16 +97,19 @@ function collectSpecialPref () {
 }
 
 function validateUserChoices(){
-  //TODO write this
+  if (includeLower || includeUpper || includeNumbers || includeSpecials) {
+    buildPassword();
+  } else {
+    alert('Thank you for your interest in generating a secure password. Unfortunately, as you do not seem to want any characters in your password, we must regretfully decline your request. We invite you to request another secure password when you are ready to provide sensible criteria.');
+  }
 }
 
 function buildPassword(){
-  //TODO write this
+  alert('Now building the password...');
 }
 
 function generatePassword() {
   collectLength();
-
 }
 
 // Write password to the #password input
