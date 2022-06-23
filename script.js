@@ -23,12 +23,14 @@ function collectLength() { // prompts the user to enter a length, then checks to
 }
 
 function collectUpperPref() {
-  var upperPref = prompt("Include uppercase letters (A-Z)? Type y or n:").toUpperCase();
-  if ((upperPref == "Y") || (upperPref == "N")) {
+  var upperPref = prompt("Include uppercase letters (A-Z)? Type y or n:");
+  if ((upperPref == "Y") || (upperPref == "N") || (upperPref == "y") || (upperPref == "n")) {
     console.log(upperPref);
-  } else {
+  } else if (upperPref != null) {
     alert('I need a "Y" or "N" here; please try again.');
     collectUpperPref();
+  } else if (upperPref == null) {
+    console.log("AAAARRRGGGHHH");
   }
 }
 
