@@ -11,7 +11,7 @@ var specials = [" ", "!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",",
 
 // ... yes I realize I could have just used strings instead of arrays. Too late!
 
-console.log(specials);
+// console.log(specials); // debuggin'
 
 var pwLength;
 var includeLower;
@@ -34,7 +34,7 @@ function collectLength() { // prompts the user to enter a length, then checks to
   }
 }
 
-function collectLowerPref(){
+function collectLowerPref(){ // asks the user if they want lowercase letters, re-prompts if they don't respond with y or n
   var lowerPref = prompt("Include lowercase letters (a-z)? Type y or n:");
   if ((lowerPref == "Y") || (lowerPref == "y")) {
     includeLower = true;
@@ -50,7 +50,7 @@ function collectLowerPref(){
   }
 }
 
-function collectUpperPref() {
+function collectUpperPref() { // asks the user if they want uppercase letters, re-prompts if they don't respond with y or n
   var upperPref = prompt("Include uppercase letters (A-Z)? Type y or n:");
   if ((upperPref == "Y") || (upperPref == "y")) {
     includeUpper = true;
@@ -66,7 +66,7 @@ function collectUpperPref() {
   }
 }
 
-function collectNumberPref () {
+function collectNumberPref () { // asks the user if they want numbers, re-prompts if they don't respond with y or n
   var numberPref = prompt("Include numbers (0-9)? Type y or n:");
   if ((numberPref == "Y") || (numberPref == "y")) {
     includeNumbers = true;
@@ -82,7 +82,7 @@ function collectNumberPref () {
   }
 }
 
-function collectSpecialPref () {
+function collectSpecialPref () { // asks the user if they want special characters, re-prompts if they don't respond with y or n
   var specialPref = prompt("Include special characters? Type y or n:");
   if ((specialPref == "Y") || (specialPref == "y")) {
     includeSpecials = true;
@@ -98,7 +98,7 @@ function collectSpecialPref () {
   }
 }
 
-function validateUserChoices(){
+function validateUserChoices(){ // makes sure the user selected at least one character type
   if (includeLower || includeUpper || includeNumbers || includeSpecials) {
     buildPassword();
   } else {
@@ -106,7 +106,7 @@ function validateUserChoices(){
   }
 }
 
-function buildPassword(){
+function buildPassword(){ // assembles a string based on collected user preferences
   console.log('Now building the password...');
 
   var passwordArray = [];
