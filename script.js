@@ -124,7 +124,7 @@ function buildPassword(){ // assembles a string based on collected user preferen
     passwordArray.push(numbers[Math.floor(Math.random() * numbers.length)]);
     console.log(passwordArray);
   }
-  if (includeUpper) {
+  if (includeSpecials) {
     passwordArray.push(specials[Math.floor(Math.random() * specials.length)]);
     console.log(passwordArray);
   }
