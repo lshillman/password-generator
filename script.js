@@ -9,6 +9,8 @@ var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 var specials = [" ", "!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
 
+// ... yes I realize I could have just used strings instead of arrays. Too late!
+
 console.log(specials);
 
 var pwLength;
@@ -106,30 +108,12 @@ function validateUserChoices(){
 
 function buildPassword(){
   console.log('Now building the password...');
-  var selectedCharSet = "";
-  if (includeLower) {
-    selectedCharSet += lowers.join("");
-  }
-  if (includeUpper) {
-    selectedCharSet += uppers.join("");
-  }
-  if (includeNumbers) {
-    selectedCharSet += numbers.join("");
-  }
-  if (includeSpecials) {
-    selectedCharSet += specials.join("");
-  }
-  console.log(selectedCharSet);
+
   var passwordArray = [];
-  // initialize password array with desired length of password. Necessary so we can add characters of different types in random positions.
-  for (let i = 0; i < pwLength; i++) {
-    passwordArray.push("");
-  }
 
-
-
+  // Make sure the password has at least one of each selected character type
   if (includeLower) {
-    passwordArray[Math.floor(Math.random() * pwLength)] = lowers[Math.floor(Math.random() * lowers.length)];
+    passwordArray.push(lowers[Math.floor(Math.random() * lowers.length)]);
     console.log(passwordArray);
   }
   if (includeUpper) {
@@ -145,6 +129,30 @@ function buildPassword(){
     console.log(passwordArray);
   }
 
+  // randomly fill the rest of the password with characters of all selected types
+
+  var selectedCharSet = "";
+  if (includeLower) {
+    selectedCharSet += lowers.join("");
+  }
+  if (includeUpper) {
+    selectedCharSet += uppers.join("");
+  }
+  if (includeNumbers) {
+    selectedCharSet += numbers.join("");
+  }
+  if (includeSpecials) {
+    selectedCharSet += specials.join("");
+  }
+  console.log(selectedCharSet);
+
+  for (i = passwordArray.length; i < pwLength; i++) {
+    passwordArray.push(selectedCharSet.charAt(Math.floor(Math.random() * selectedCharSet.length)));
+  }
+  console.log(passwordArray);
+  console.log(passwordArray.join("").length);
+  console.log(passwordArray.join(""));
+
 }
 
 function generatePassword() {
@@ -156,7 +164,7 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  // passwordText.value = password;
 
 }
 
