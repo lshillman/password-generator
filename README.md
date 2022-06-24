@@ -1,6 +1,6 @@
 # Secure Password Generator
 
-A wretched little JS app that uses window prompts to collect parameters that will ultimately be used to generate a password.
+A wretched little JS app viewable [here](https://lshillman.github.io/password-generator/) that uses window prompts to collect parameters that will ultimately be used to generate a password. To use, load the page and click the big red button.
 
 Part of my goal here was to start getting comfortable with user input in JS. If I were actually building a generator for myself, the UX would be quite different.
 
@@ -28,6 +28,7 @@ function collectLength() { // prompts the user to enter a length, then checks to
 ````
 # In action
 
+https://user-images.githubusercontent.com/5232938/175451943-2b4448e9-9bb4-4a9a-ba68-c30c46babc0a.mov
 
 ## Acknowledgments
 I'd like to thank [@StarryBlue7](https://github.com/StarryBlue7) for talking through the randomness algorithm with me.
