@@ -121,12 +121,15 @@ function buildPassword(){
   }
   console.log(selectedCharSet);
   var passwordArray = [];
-  //TODO: initialize password array with desired length of password
+  // initialize password array with desired length of password. Necessary so we can add characters of different types in random positions.
+  for (let i = 0; i < pwLength; i++) {
+    passwordArray.push("");
+  }
 
 
 
   if (includeLower) {
-    passwordArray[Math.floor(Math.random() * pwLength.length)] = lowers[Math.floor(Math.random() * lowers.length)];
+    passwordArray[Math.floor(Math.random() * pwLength)] = lowers[Math.floor(Math.random() * lowers.length)];
     console.log(passwordArray);
   }
   if (includeUpper) {
