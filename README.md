@@ -8,7 +8,7 @@ Please note: this generator makes extensive use of Math.random() and as such, DO
 
 # Fun code
 
-````
+````javascript
 // most of the user prompts look something like this.
 
 function collectLength() { // prompts the user to enter a length, then checks to see if it's valid, returns the input if so, re-prompts if not
