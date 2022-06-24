@@ -30,7 +30,7 @@ function collectLength() { // prompts the user to enter a length, then checks to
     collectLength();
   }
   else {
-    return;
+    console.log("argh");
   }
 }
 
@@ -78,7 +78,7 @@ function collectNumberPref () { // asks the user if they want numbers, re-prompt
     alert('I need a "Y" or "N" here; please try again.');
     collectNumberPref();
   } else {
-    console.log("AAAARRRGGGHHH");
+    console.log("@@@RRRGGGHHH");
   }
 }
 
@@ -94,7 +94,7 @@ function collectSpecialPref () { // asks the user if they want special character
     alert('I need a "Y" or "N" here; please try again.');
     collectSpecialPref();
   } else {
-    console.log("AAAARRRGGGHHH");
+    console.log("AAAARRRGGGHHH!!!");
   }
 }
 
@@ -152,6 +152,10 @@ function buildPassword(){ // assembles a string based on collected user preferen
   console.log(passwordArray);
   console.log(passwordArray.join("").length);
   console.log(passwordArray.join(""));
+
+  // if this were for real, I'd use the Fisher-Yates shuffle on passwordArray:
+  // https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+  // Currently, the first 1-4 characters of the password will reflect each of the different character types the user selected, which might be exploitable information. For now, I'm not gonna worry about it.
 
   // pass the generated password to writePassword()
   writePassword(passwordArray.join(""));
